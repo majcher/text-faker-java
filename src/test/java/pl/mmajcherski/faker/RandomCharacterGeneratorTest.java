@@ -21,10 +21,11 @@ public class RandomCharacterGeneratorTest {
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void shouldThrowExceptionWhenMaxCharacterIsGreaterThanMin() {
         // given
-        RandomCharacterGenerator sut = new RandomCharacterGenerator('2', '1');
+        char min = '2';
+        char max = '1';
 
         // when
-        sut.generate();
+        new RandomCharacterGenerator(min, max);
     }
 
 }

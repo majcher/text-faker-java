@@ -12,6 +12,8 @@ class RandomCharacterGenerator implements TextGenerator {
     private final char max;
 
     public RandomCharacterGenerator(char min, char max) {
+        checkArgument((int) max >= (int) min);
+
         this.min = min;
         this.max = max;
     }
@@ -20,7 +22,6 @@ class RandomCharacterGenerator implements TextGenerator {
     public String generate() {
         int firstCharInt = (int) min;
         int lastCharInt = (int) max;
-        checkArgument(max >= min);
 
         int range = lastCharInt - firstCharInt;
         char randomChar = (char) (firstCharInt + random.nextInt(range));
