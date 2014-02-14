@@ -7,19 +7,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FakerTextifyTest {
 
     @Test
-    public void shouldReplaceHashWithDigit() {
+    public void shouldReplaceQuestionMarkWithLetter() {
         // given
         String text = "abc???";
 
         // when
-        String textifiedText = Faker.textify(text);
+        String textified = Faker.textify(text);
 
         // then
-        assertThat(textifiedText).matches("abc[a-z][a-z][a-z]");
+        assertThat(textified).matches("abc[a-z][a-z][a-z]");
     }
 
     @Test
-    public void shouldReplaceHashWithRandomDigit() {
+    public void shouldReplaceQuestionMarkWithRandomLetter() {
         // given
         String text = "test-?????";
 
@@ -32,16 +32,16 @@ public class FakerTextifyTest {
     }
 
     @Test
-    public void shouldReplaceHashWithDifferentRandomDigits() {
+    public void shouldReplaceQuestionMarkWithDifferentRandomLetters() {
         // given
         String text = "?????";
 
         // when
-        String textifiedText1 = Faker.textify(text);
+        String textified = Faker.textify(text);
 
         // then
-        String fc = textifiedText1.substring(0, 1);
-        assertThat(textifiedText1).isNotEqualTo(fc + fc + fc + fc + fc);
+        String fc = textified.substring(0, 1);
+        assertThat(textified).isNotEqualTo(fc + fc + fc + fc + fc);
     }
 
 }

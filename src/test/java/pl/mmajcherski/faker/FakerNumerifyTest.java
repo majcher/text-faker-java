@@ -12,10 +12,10 @@ public class FakerNumerifyTest {
         String text = "abc###";
 
         // when
-        String numerifiedText = Faker.numerify(text);
+        String numerified = Faker.numerify(text);
 
         // then
-        assertThat(numerifiedText).matches("abc[0-9][0-9][0-9]");
+        assertThat(numerified).matches("abc[0-9][0-9][0-9]");
     }
 
     @Test
@@ -24,11 +24,11 @@ public class FakerNumerifyTest {
         String text = "test-#####";
 
         // when
-        String numerifiedText1 = Faker.numerify(text);
-        String numerifiedText2 = Faker.numerify(text);
+        String numerified1 = Faker.numerify(text);
+        String numerified2 = Faker.numerify(text);
 
         // then
-        assertThat(numerifiedText1).isNotEqualTo(numerifiedText2);
+        assertThat(numerified1).isNotEqualTo(numerified2);
     }
 
     @Test
@@ -37,11 +37,11 @@ public class FakerNumerifyTest {
         String text = "#####";
 
         // when
-        String numerifiedText1 = Faker.numerify(text);
+        String numerified = Faker.numerify(text);
 
         // then
-        String fc = numerifiedText1.substring(0, 1);
-        assertThat(numerifiedText1).isNotEqualTo(fc + fc + fc + fc + fc);
+        String fc = numerified.substring(0, 1);
+        assertThat(numerified).isNotEqualTo(fc + fc + fc + fc + fc);
     }
 
 }

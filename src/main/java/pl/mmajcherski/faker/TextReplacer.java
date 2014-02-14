@@ -12,9 +12,9 @@ class TextReplacer {
 
     public String replaceAll(String stringToReplace, TextGenerator replacementStrategy) {
         StringBuilder outputText = new StringBuilder();
-        StringTokenizer st = new StringTokenizer(text, stringToReplace, true);
-        while (st.hasMoreTokens()) {
-            String token = st.nextToken();
+        StringTokenizer tokenizer = new StringTokenizer(text, stringToReplace, true);
+        while (tokenizer.hasMoreTokens()) {
+            String token = tokenizer.nextToken();
             if (token.equals(stringToReplace)) {
                 outputText.append(replacementStrategy.generate());
             } else {
